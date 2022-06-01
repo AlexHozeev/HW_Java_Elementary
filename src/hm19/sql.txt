@@ -1,0 +1,27 @@
+create table wallet
+(
+	wallet_id INTEGER,
+	currency VARCHAR,
+	amount INTEGER,
+	user_id INTEGER,
+	created DATE	
+);
+
+create table user_1
+(
+	user_id INTEGER,
+	name VARCHAR NOT NULL,
+	surname VARCHAR NOT NULL,
+	date_of_registration DATE
+);
+
+INSERT INTO wallet(wallet_id,currency,amount,user_id,created)
+VALUES (20,'yuan',3,1,'20-03-2001');
+INSERT INTO wallet(wallet_id,currency,amount,user_id,created)
+VALUES (12,'dollar',1,2,'20-03-2003');
+INSERT INTO user_1(user_id,name,surname,date_of_registration)
+VALUES (1,'Griffith','Ethan','20-03-2001');
+INSERT INTO user_1(user_id,name,surname,date_of_registration)
+VALUES (2,'Sims','Pearl','20-03-2003');
+
+select name,currency,amount from user_1 join wallet on user_1.user_id = wallet.user_id;
